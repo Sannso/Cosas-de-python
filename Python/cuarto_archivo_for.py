@@ -11,6 +11,8 @@ seguidos = False    # Verificador si hay puntos seguidos
 seguidocont = ""    # "Colaborador" de seguidos
 dotArroba = False   # No hay punto luego de o antes del arroba
 
+# Esto esta horriblemente mal pero oc
+
 for i in _email:
     if(seguidocont != i):
         if(seguidocont == "." and i == "@"):

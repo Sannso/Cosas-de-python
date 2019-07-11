@@ -10,7 +10,7 @@ print("-- Sistema de eleccion de asignaturas --")
 print("Asignaturas: Matematicas - Español - Laboratorio de física")
 eleccion = input("Escoja la asignatura deseada: ")
 
-asignatura = eleccion.lower()
+asignatura = eleccion.lower() # Convierte todo en minusculas
 
 if asignatura in ("matematicas", "español", "laboratorio de fisica"):
     print("Acaba de registrar: " + asignatura + " existosamente")
