@@ -9,11 +9,13 @@ class Persona():
 
 class Empleado(Persona):
     def __init__(self, Sueldo, Cargo, nombre, edad, Lrecidencia):
-        super().__init__(nombre, edad, Lrecidencia)
+        super().__init__(nombre, edad, Lrecidencia) # super() llama al metodo de la clase padre que corresponda
         self.Sueldo = Sueldo
         self.Cargo = Cargo
 
-    # Esta Descripcion sobre escribe la de Persona
+    # Esta Descripcion sobre escribe la de Persona debia que si el metodo
+    # tiene el mismo nombre que del que hereda, python "corre" primordialmente esta clase.
+
     #def Descripcion(self):
     #    print("\nNombre: " + self.Nombre + "\nEdad: " + str(self.Edad) + "\nLugar de recidencia: " + self.Recidencia + "\nSueldo: " + str(self.Sueldo) + "\nCargo: " + self.Cargo)
 
