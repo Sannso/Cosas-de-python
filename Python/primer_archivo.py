@@ -1,9 +1,11 @@
 print ("Tests")
 
-letra1 = "primera palabra "
-letra2 = "segunda palabra \n"
+letra1 = "primera palabra"
+letra2 = " segunda palabra \n"
 combinados = letra1 + letra2
 print(combinados)
+
+
 
 
 first_list=["1", "2", "3", "4", "5"]
