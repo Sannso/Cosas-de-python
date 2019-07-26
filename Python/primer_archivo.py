@@ -5,7 +5,12 @@ letra2 = " segunda palabra \n"
 combinados = letra1 + letra2
 print(combinados)
 
-
+large = len(letra1)
+con = 0
+print(large)
+for i in range(large):
+    con+=1
+print(str(con) +"\n")
 
 
 first_list=["1", "2", "3", "4", "5"]

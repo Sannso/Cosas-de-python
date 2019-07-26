@@ -24,7 +24,7 @@ root.resizable(0,0)
 root.config(bg="black")
 
 
-#------(llamado por el teclado numerico) Pone los numeros en pantalla  ------------
+"""----(llamado por el teclado numerico) Pone los numeros en pantalla  -----"""
 
 def Numeros(numero):
 
@@ -38,29 +38,78 @@ def Numeros(numero):
 
 
 
-# -------(llamado por todo menos los numeros y el igual(=) ) Operaciones con numeros -----------
+"""--- (llamado por todo menos los numeros y el igual(=) ) Operaciones con numeros ------"""
 
 def Operaciones(ope):
-    hayOperador = True  # Variable para evitar dos operadores seguidos
+    #------------------------------------------------------------------------------
+    hayOperador = 0  # Variable para evitar dos operadores seguidos
 
     for i in varR.get():   # Mi metodo momentaneo para evitar dos operadores seguidos
         if(i == "x" or i == "/" or i == "+" or i == "-"):
-            if(hayOperador):
-                hayOperador = True
+            if(hayOperador == 0):
+                hayOperador = 1
 
 
-    if(hayOperador):                # Verificador y el que hace el cambio de la variable que
+    if(hayOperador <= 1 and ope != "ce" and ope != "delt"):     # Verificador y el que hace el cambio de la variable que
         varR.set(varR.get() + ope)      # muestra el resultado en pantalla|
 
+    # ----------------------------------------------------------------------------
+            # Elimina el ultimo digito
+    if(ope == "delt"):
+        cadena = ""
+        large = len(varR.get())
 
-    if(ope == "ce"):       # Borra lo que hay en pantalla
+
+        if(large == 1):
+            varR.set("0")
+
+        elif(large > 1):
+            contador = 0
+            for i in varR.get():
+                if(contador <= (large - 2)):
+                    contador+=1
+                    cadena = cadena + i
+
+            varR.set(cadena)
+
+    #-----------------------------------------------------------------------------
+
+    if(ope == "ce"):       # Borra un bloque de numero que haya en la pantalla
+        cadena = ""
+        contadorO = 0
+
+        for i in varR.get():
+
+            if(contadorO == 0 and (i.isdigit() or i == ".")):
+                cadena = cadena + i
+
+            elif(i.isdigit() == False and i != "."):
+                cadena = cadena + i
+                contadorO = contadorO + 1
+
+            elif(contadorO >= 1 and (i.isdigit() or i == ".")):
+                contadorO = contadorO + 1
+
+        if(contadorO <= 1):
+            varR.set("0")
+
+        else:
+            varR.set(cadena)
+
+
+    # ----------------------------------------------------------------------------
+
+    if(ope == "c"):         # Borra todo
         varR.set("0")
 
+    #-----------------------------------------------------------------------------
+
+    #if(ope == "neg"):
 
 
 
 
-# ----(Llamado pro el operador igual(=)) Operaciones matematicas ----------------
+"""----(Llamado pro el operador igual(=)) Operaciones matematicas --------"""
 
 def hacerOperaciones():
     cadena1 = ""
@@ -123,16 +172,20 @@ resultado.pack(pady="8", padx="8", side="right")
 
 
 # Botones "CE", "C", "Borrar", "Dividir"
-CE = Button(mFrame, text="CE", justify="center", width="7", height="2", command=lambda: Operaciones("ce"))
+CE = Button(mFrame, text="CE", justify="center", width="7", height="2",
+                        command=lambda: Operaciones("ce"))
 CE.grid(row="1", column="0", padx="4", pady="6" )
 
-C = Button(mFrame, text="C", justify="center", width="7", height="2")
+C = Button(mFrame, text="C", justify="center", width="7", height="2",
+                        command=lambda: Operaciones("c"))
 C.grid(row="1", column="1", padx="4", pady="6" )
 
-Delt = Button(mFrame, text="Delete", justify="center", width="7", height="2")
+Delt = Button(mFrame, text="Delete", justify="center", width="7", height="2",
+                        command=lambda: Operaciones("delt"))
 Delt.grid(row="1", column="2", padx="4", pady="6" )
 
-Dividir = Button(mFrame, text="/", justify="center", width="7", height="2", command=lambda: Operaciones("/"))
+Dividir = Button(mFrame, text="/", justify="center", width="7", height="2",
+                        command=lambda: Operaciones("/"))
 Dividir.grid(row="1", column="3", padx="4", pady="6" )
 
 
