@@ -17,13 +17,13 @@ print(generadorPares(limite))
 
 #Funcion con Generador
 
-def generadorPares(limite):
+def generadorPares2(limite):
     for i in range(limite):
         yield i*2
 
 
 limite = int(input("Ingrese el limite: "))
-recorre_generador = generadorPares(limite)  # recorre_generador es el objeto generador
+recorre_generador = generadorPares2(limite)  # recorre_generador es el objeto generador
 for i in recorre_generador:
     print(i)
 
