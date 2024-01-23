@@ -1,0 +1,23 @@
+[info]
+imagen:terrenogen.png
+can_ancho:32
+can_alto:12
+mapa: ....#..............
+      ....###......a..........##
+      ....#.aaaa...##....
+      .............#.....
+
+[.]
+tipo:cesped
+col:16
+fil:0
+
+[#]
+tipo:muro
+col:0
+fil:6
+
+[a]
+tipo:piedra
+col:20
+fil:6
